@@ -47,7 +47,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\State.cs" />
+     <Compile Include="Assets\Scripts\Spawner\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\InputReader.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerBaseState.cs" />
@@ -57,6 +59,7 @@
      <None Include="Library\PackageCache\com.unity.settings-manager@2.0.1\package.json" />
      <Folder Include="Assets\Animations" />
      <Folder Include="Library\PackageCache\com.unity.test-framework@1.1.33" />
+     <Folder Include="Assets\Scripts\Spawner" />
      <Folder Include="Library\PackageCache\com.unity.searcher@4.9.2" />
      <None Include="Library\PackageCache\com.unity.inputsystem@1.6.3\package.json" />
      <None Include="Library\PackageCache\com.unity.inputsystem@1.6.3\ValidationConfig.json" />
@@ -75,12 +78,14 @@
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\package.json" />
      <Folder Include="Assets\Models\Character" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Graphics" />
+     <Folder Include="Assets\Scripts\Enemy" />
      <Folder Include="Assets\Scripts\Player\Movement" />
      <Folder Include="Library\PackageCache\com.unity.burst@1.8.7\Tests" />
      <Folder Include="Assets\Scripts\Player\Movement\StateMachine" />
      <Folder Include="Assets\Models\Plants\Trees" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Gizmos" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\ValidationConfig.json" />
+     <Folder Include="Assets\Scripts\Enemy\Animation" />
      <Folder Include="Assets\Models\Character\alhaitham\source" />
      <None Include="Library\PackageCache\com.unity.timeline@1.7.5\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom" />
@@ -100,11 +105,13 @@
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Tests" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\package.json" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\ValidationExceptions.json" />
+     <Folder Include="Assets\Models\Enemies\buzz" />
      <Folder Include="Assets\Models" />
      <None Include="Library\PackageCache\com.unity.ide.rider@3.0.24\package.json" />
      <None Include="Library\PackageCache\com.unity.searcher@4.9.2\package.json" />
      <Folder Include="Assets\Models\Character\alhaitham\source\untitled" />
      <Folder Include="Assets\Resouces\Prefabs" />
+     <Folder Include="Assets\Scripts\Enemy\Movement" />
      <None Include="Library\PackageCache\com.unity.test-framework@1.1.33\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Scripts" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime" />
@@ -118,7 +125,9 @@
      <Folder Include="Assets\Scripts" />
      <None Include="Library\PackageCache\com.unity.visualscripting@1.8.0\ValidationExceptions.json" />
      <Folder Include="Library\PackageCache\com.unity.settings-manager@2.0.1" />
+     <Folder Include="Assets\Models\Enemies\buzz\source" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\ValidationExceptions.json" />
+     <Folder Include="Assets\Models\Enemies" />
      <Folder Include="Assets\Scripts\Player" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Textures" />
      <Folder Include="Library\PackageCache\com.unity.editorcoroutines@1.0.0" />
@@ -133,6 +142,7 @@
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Gizmos" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.3.1" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\package.json" />
+     <Folder Include="Assets\Models\Enemies\buzz\textures" />
      <None Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6" />
      <Folder Include="Library\PackageCache\com.unity.ide.rider@3.0.24" />
@@ -147,8 +157,10 @@
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
      <Folder Include="Assets\Models\Plants\Mushrooms" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
+     <Folder Include="Assets\Models\Enemies\buzz\Materials" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Presets" />
      <Folder Include="Assets\Models\Character\Knight" />
+     <Folder Include="Assets\Resouces\Prefabs\Enemies" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib" />
      <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.5\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.visualscripting@1.8.0\ValidationConfig.json" />
