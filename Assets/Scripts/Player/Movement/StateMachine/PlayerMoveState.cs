@@ -4,8 +4,8 @@ namespace Player.Movement.StateMachine
 {
     public class PlayerMoveState: PlayerBaseState
     {
-        private readonly int MoveSpeedHash = Animator.StringToHash("MoveSpeed");
-        private readonly int MoveBlendTreeHash = Animator.StringToHash("MoveBlendTree");
+        private readonly int _moveSpeedHash = Animator.StringToHash("MoveSpeed");
+        private readonly int _moveBlendTreeHash = Animator.StringToHash("MoveBlendTree");
         private const float AnimationDampTime = 0.1f;
         private const float CrossFadeDuration = 0.1f;
 
@@ -15,7 +15,7 @@ namespace Player.Movement.StateMachine
         {
             StateMachine.Velocity.y = Physics.gravity.y;
 
-            StateMachine.Animator.CrossFadeInFixedTime(MoveBlendTreeHash, CrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(_moveBlendTreeHash, CrossFadeDuration);
             
         }
 
@@ -24,8 +24,8 @@ namespace Player.Movement.StateMachine
             CalculateMoveDirection();
             FaceMoveDirection();
             Move();
-
-            StateMachine.Animator.SetFloat(MoveSpeedHash, StateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? 1f : 0f, AnimationDampTime, Time.deltaTime);
+           
+            StateMachine.Animator.SetFloat(_moveSpeedHash, StateMachine.InputReader.MoveComposite.sqrMagnitude > 0f ? 1f : 0f, AnimationDampTime, Time.deltaTime);
         }
 
         public override void Exit()
