@@ -647,15 +647,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9007849992187872156, guid: ffaff8812c31a334ca3eeea5333ab4ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.07
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 9007849992187872156, guid: ffaff8812c31a334ca3eeea5333ab4ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: 9007849992187872156, guid: ffaff8812c31a334ca3eeea5333ab4ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.98
+      value: -1.22
       objectReference: {fileID: 0}
     - target: {fileID: 9007849992187872156, guid: ffaff8812c31a334ca3eeea5333ab4ce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -719,13 +719,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0, z: 0}
-  EnemyPosition: {fileID: 1749714310}
+  Transform: {fileID: 1749714310}
   Points:
-  - point: {x: 0, y: 0, z: 0}
-    time: 0
-  - point: {x: 0, y: 0, z: 0}
-    time: 0
+  - point: {x: 2.85, y: 2.9, z: -7.98}
+    time: 1
+  - point: {x: 1.57, y: 1.18, z: 4.26}
+    time: 10
   PointOfView: 0
+  CurrentPoint: 0
 --- !u!95 &1749714312
 Animator:
   serializedVersion: 5

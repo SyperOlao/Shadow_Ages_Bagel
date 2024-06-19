@@ -23,6 +23,9 @@ namespace Enemy.Movement.StateMachine
 
         public override void Tick()
         {
+            CalculateMoveDirection();
+         //   FaceMoveDirection();
+          //  Move();
         }
 
         public override void Exit()
