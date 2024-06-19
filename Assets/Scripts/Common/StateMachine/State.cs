@@ -1,4 +1,4 @@
-﻿namespace Player.Movement.StateMachine
+﻿namespace Common.StateMachine
 {
     public abstract class State
     {

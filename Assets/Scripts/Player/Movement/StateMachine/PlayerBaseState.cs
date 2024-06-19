@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common.StateMachine;
+using UnityEngine;
 
 namespace Player.Movement.StateMachine
 {
@@ -32,15 +33,7 @@ namespace Player.Movement.StateMachine
 
             StateMachine.transform.rotation = Quaternion.Slerp(StateMachine.transform.rotation, Quaternion.LookRotation(faceDirection), StateMachine.LookRotationDampFactor * Time.deltaTime);
         }
-
-        protected void ApplyGravity()
-        {
-            if (StateMachine.Velocity.y > Physics.gravity.y)
-            {
-                StateMachine.Velocity.y += Physics.gravity.y * Time.deltaTime;
-            }
-        }
-
+        
         protected void Move()
         {
             StateMachine.Controller.Move(StateMachine.Velocity * Time.deltaTime);

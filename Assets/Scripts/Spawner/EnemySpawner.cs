@@ -17,14 +17,14 @@ namespace Spawner
         private void Awake()
         {
             _pool = new ObjectPool<GameObject>(
-                    createFunc: () => Instantiate(_prefab),
-                    actionOnGet: ActionOnGet,
-                    actionOnRelease: obj => obj.SetActive(false),
-                    actionOnDestroy: Destroy,
-                    collectionCheck: true,
-                    defaultCapacity: _poolCapacity,
-                    maxSize: _poolMaxSize
-                );
+                createFunc: () => Instantiate(_prefab),
+                actionOnGet: ActionOnGet,
+                actionOnRelease: obj => obj.SetActive(false),
+                actionOnDestroy: Destroy,
+                collectionCheck: true,
+                defaultCapacity: _poolCapacity,
+                maxSize: _poolMaxSize
+            );
         }
 
         private void ActionOnGet(GameObject obj)
@@ -36,12 +36,17 @@ namespace Spawner
 
         private void Start()
         {
-            InvokeRepeating(nameof(GetObject), 0.0f, _repeatRate);
+            Invoke(nameof(GetObject), 0.0f);
         }
 
         private void GetObject()
         {
             _pool.Get();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            _pool.Release(other.gameObject);
         }
     }
 }

@@ -45,16 +45,22 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerStateMachine.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\EnemyMovement.cs" />
-     <Compile Include="Assets\Scripts\Player\Movement\StateMachine\State.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyAttackState.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyBaseState.cs" />
      <Compile Include="Assets\Scripts\Spawner\EnemySpawner.cs" />
-     <Compile Include="Assets\Scripts\Player\Movement\StateMachine\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
+     <Compile Include="Assets\Scripts\DataClasses\PointsWithTimeStandby.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\InputReader.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerBaseState.cs" />
+     <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyMoveState.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\Controls.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerMoveState.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyWarnigState.cs" />
      <Folder Include="Assets" />
      <None Include="Library\PackageCache\com.unity.settings-manager@2.0.1\package.json" />
      <Folder Include="Assets\Animations" />
@@ -120,6 +126,7 @@
      <None Include="Library\PackageCache\com.unity.performance.profile-analyzer@1.2.2\package.json" />
      <Folder Include="Assets\Animations\Character" />
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3" />
+     <Folder Include="Assets\Scripts\Common" />
      <Folder Include="Assets\Materials" />
      <Folder Include="Assets\Models\Plants\Oak" />
      <Folder Include="Assets\Scripts" />
@@ -149,12 +156,14 @@
      <Folder Include="Library\PackageCache\com.unity.searcher@4.9.2\Tests" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.3.1\ValidationConfig.json" />
+     <Folder Include="Assets\Scripts\Enemy\Movement\StateMachine" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
      <Folder Include="Assets\Models\Character\alhaitham" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
      <Folder Include="Assets\Animations\Character\NPC" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
+     <Folder Include="Assets\Scripts\Common\StateMachine" />
      <Folder Include="Assets\Models\Plants\Mushrooms" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
      <Folder Include="Assets\Models\Enemies\buzz\Materials" />
@@ -173,6 +182,7 @@
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Package Resources" />
      <Folder Include="Assets\Resouces" />
      <Folder Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib" />
+     <Folder Include="Assets\Scripts\DataClasses" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\Unity.Burst.Unsafe.xml" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\package.json" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Presets\Noise" />
