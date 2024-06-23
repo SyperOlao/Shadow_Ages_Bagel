@@ -7,7 +7,7 @@ namespace Common.StateMachine
     {
         private State _currentState;
 
-        protected void SwitchState(State state)
+        public void SwitchState(State state)
         {
             _currentState?.Exit();
             _currentState = state;

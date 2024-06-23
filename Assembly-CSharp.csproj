@@ -53,8 +53,10 @@
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyBaseState.cs" />
      <Compile Include="Assets\Scripts\Spawner\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Common\Timer\Timer.cs" />
      <Compile Include="Assets\Scripts\DataClasses\PointsWithTimeStandby.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\InputReader.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyIdleState.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerBaseState.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyMoveState.cs" />
@@ -150,6 +152,7 @@
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.3.1" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\package.json" />
      <Folder Include="Assets\Models\Enemies\buzz\textures" />
+     <Folder Include="Assets\Scripts\Common\Timer" />
      <None Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6" />
      <Folder Include="Library\PackageCache\com.unity.ide.rider@3.0.24" />

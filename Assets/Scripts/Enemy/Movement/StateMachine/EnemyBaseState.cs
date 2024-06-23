@@ -13,10 +13,11 @@ namespace Enemy.Movement.StateMachine
             StateMachine = stateMachine;
         }
 
-        protected void CalculateMoveDirection()
+        protected void Move()
         {
             var step = StateMachine.MovementSpeed * Time.deltaTime;
             var targetPosition = StateMachine.Points[StateMachine.CurrentPoint].point;
+            var targetTime = StateMachine.Points[StateMachine.CurrentPoint].time;
             var stateMachineTransform = StateMachine.transform;
             StateMachine.transform.position = Vector3.MoveTowards(stateMachineTransform.position, targetPosition, step);
 
@@ -24,6 +25,7 @@ namespace Enemy.Movement.StateMachine
             if (Vector3.Distance(stateMachineTransform.position, targetPosition) < 0.01f)
             {
                 ChangeCurrentPoint();
+                StateMachine.SwitchState(new EnemyIdleState(StateMachine, targetTime));
             }
         }
 
@@ -42,20 +44,6 @@ namespace Enemy.Movement.StateMachine
             }
         }
 
-        protected void FaceMoveDirection()
-        {
-            Vector3 faceDirection = new(StateMachine.Velocity.x, 0f, StateMachine.Velocity.z);
-
-            if (faceDirection == Vector3.zero)
-                return;
-
-            StateMachine.transform.rotation = Quaternion.Slerp(StateMachine.transform.rotation,
-                Quaternion.LookRotation(faceDirection), StateMachine.LookRotationDampFactor * Time.deltaTime);
-        }
-
-        protected void Move()
-        {
-            StateMachine.Rigidbody.AddForce(StateMachine.Velocity * Time.deltaTime);
-        }
+ 
     }
 }
