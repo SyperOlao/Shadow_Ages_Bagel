@@ -9,6 +9,7 @@ namespace Player.Movement
         private CharacterController _characterController;    
         void Start()
         {
+            gameObject.tag = "Player";
             _characterController = GetComponent<CharacterController>();
         }
         

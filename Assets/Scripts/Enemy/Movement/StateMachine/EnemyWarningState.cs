@@ -1,6 +1,6 @@
 ﻿namespace Enemy.Movement.StateMachine
 {
-    public class EnemyWarnigState
+    public class EnemyWarningState
     {
         
     }

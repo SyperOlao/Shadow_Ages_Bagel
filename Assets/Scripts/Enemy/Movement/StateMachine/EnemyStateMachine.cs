@@ -10,7 +10,7 @@ namespace Enemy.Movement.StateMachine
     {
         public Vector3 Velocity;
 
-        public float PointRadius { get; set; } = 1;
+        public float PointRadius { get; set; } = 0.01f;
         
         public float LookRotationDampFactor { get; private set; } = 10f;
 

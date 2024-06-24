@@ -73,9 +73,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.InputSystem.TestFrame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VisualScripting.Shared.Editor", "Unity.VisualScripting.Shared.Editor.csproj", "{f55f8fb6-e3ee-5234-0488-77c9cc8b8c1c}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.CollabProxy.Editor", "Unity.CollabProxy.Editor.csproj", "{6b7309f2-f9c1-0e3e-3a39-86563068ffd1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{cc73847f-139c-0e73-9a93-bd5d8f4c3136}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.CollabProxy.Editor", "Unity.CollabProxy.Editor.csproj", "{6b7309f2-f9c1-0e3e-3a39-86563068ffd1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Burst.Tests.UnitTests", "Unity.Burst.Tests.UnitTests.csproj", "{c618a33b-6c02-0cb8-8af1-5621ade4094c}"
 EndProject
@@ -184,10 +184,10 @@ Global
 		{cacc7c68-ff8c-cada-af16-811ebc08cb3f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{f55f8fb6-e3ee-5234-0488-77c9cc8b8c1c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{f55f8fb6-e3ee-5234-0488-77c9cc8b8c1c}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6b7309f2-f9c1-0e3e-3a39-86563068ffd1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6b7309f2-f9c1-0e3e-3a39-86563068ffd1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{cc73847f-139c-0e73-9a93-bd5d8f4c3136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{cc73847f-139c-0e73-9a93-bd5d8f4c3136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6b7309f2-f9c1-0e3e-3a39-86563068ffd1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6b7309f2-f9c1-0e3e-3a39-86563068ffd1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{c618a33b-6c02-0cb8-8af1-5621ade4094c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{c618a33b-6c02-0cb8-8af1-5621ade4094c}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{fee7cfd3-0f13-1e80-828c-8eed3ac800a6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

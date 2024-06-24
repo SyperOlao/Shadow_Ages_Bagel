@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using State = Common.StateMachine.State;
 
@@ -16,17 +17,21 @@ namespace Enemy.Movement.StateMachine
         protected void Move()
         {
             var step = StateMachine.MovementSpeed * Time.deltaTime;
+            if (StateMachine.Points.Count <= 0)
+            {
+                StateMachine.SwitchState(new EnemyIdleState(StateMachine, float.PositiveInfinity));
+                return;
+            }
             var targetPosition = StateMachine.Points[StateMachine.CurrentPoint].point;
             var targetTime = StateMachine.Points[StateMachine.CurrentPoint].time;
             var stateMachineTransform = StateMachine.transform;
             StateMachine.transform.position = Vector3.MoveTowards(stateMachineTransform.position, targetPosition, step);
 
 
-            if (Vector3.Distance(stateMachineTransform.position, targetPosition) < 0.01f)
-            {
-                ChangeCurrentPoint();
-                StateMachine.SwitchState(new EnemyIdleState(StateMachine, targetTime));
-            }
+            if (!(Vector3.Distance(stateMachineTransform.position, targetPosition) < StateMachine.PointRadius)) return;
+            
+            ChangeCurrentPoint();
+            StateMachine.SwitchState(new EnemyIdleState(StateMachine, targetTime));
         }
 
         private void ChangeCurrentPoint()
