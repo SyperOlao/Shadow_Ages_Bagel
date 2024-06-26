@@ -27,9 +27,11 @@ namespace Enemy.Movement.StateMachine
         private void MoveToPlayer()
         {
             var step = StateMachine.MovementSpeed * Time.deltaTime * 1.5f;
-            
-            Move(StateMachine.transform.position, StateMachine.FieldOfView.LastPlayerPosition,
+            var position = StateMachine.transform.position;
+            var lastPlayerPosition = StateMachine.FieldOfView.LastPlayerPosition;
+            Move(position, lastPlayerPosition,
                 step);
+            FaceToDirection( lastPlayerPosition, position);
         }
 
         private void SwitchStateByTime()

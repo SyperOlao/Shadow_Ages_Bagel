@@ -20,6 +20,12 @@ namespace Enemy.Movement.StateMachine
             StateMachine.transform.position = Vector3.MoveTowards(startPosition, endPosition, step);
         }
 
+        protected void FaceToDirection(Vector3 targetPosition, Vector3 followerPosition)
+        {
+            var directionToTarget = (targetPosition - followerPosition).normalized;
+            StateMachine.transform.rotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
+        }
+
         protected void ChangeCurrentPoint()
         {
             var currentPoint = StateMachine.CurrentPoint;

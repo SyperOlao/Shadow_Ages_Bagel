@@ -32,10 +32,10 @@ namespace Enemy.Movement.StateMachine
             }
             var targetPosition = StateMachine.Points[StateMachine.CurrentPoint].point;
             var targetTime = StateMachine.Points[StateMachine.CurrentPoint].time;
-            var stateMachineTransform = StateMachine.transform;
-            Move(stateMachineTransform.position, targetPosition, step);
-            
-            if (!(Vector3.Distance(stateMachineTransform.position, targetPosition) < StateMachine.PointRadius)) return;
+            var stateMachinePosition = StateMachine.transform.position;
+            Move(stateMachinePosition, targetPosition, step);
+            FaceToDirection(targetPosition, stateMachinePosition);
+            if (!(Vector3.Distance(stateMachinePosition, targetPosition) < StateMachine.PointRadius)) return;
             
             ChangeCurrentPoint();
             StateMachine.SwitchState(new EnemyIdleState(StateMachine, targetTime));
