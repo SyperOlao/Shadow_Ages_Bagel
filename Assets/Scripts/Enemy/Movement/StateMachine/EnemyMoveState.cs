@@ -16,6 +16,7 @@ namespace Enemy.Movement.StateMachine
 
         public override void Enter()
         {
+     
             StateMachine.Velocity.y = Physics.gravity.y;
 
             StateMachine.Animator.CrossFadeInFixedTime(_moveBlendTreeHash, CrossFadeDuration);
@@ -23,7 +24,21 @@ namespace Enemy.Movement.StateMachine
 
         public override void Tick()
         {
-            Move();
+            var step = StateMachine.MovementSpeed * Time.deltaTime;
+            if (StateMachine.Points.Count <= 0)
+            {
+                StateMachine.SwitchState(new EnemyIdleState(StateMachine, float.PositiveInfinity));
+                return;
+            }
+            var targetPosition = StateMachine.Points[StateMachine.CurrentPoint].point;
+            var targetTime = StateMachine.Points[StateMachine.CurrentPoint].time;
+            var stateMachineTransform = StateMachine.transform;
+            Move(stateMachineTransform.position, targetPosition, step);
+            
+            if (!(Vector3.Distance(stateMachineTransform.position, targetPosition) < StateMachine.PointRadius)) return;
+            
+            ChangeCurrentPoint();
+            StateMachine.SwitchState(new EnemyIdleState(StateMachine, targetTime));
         }
 
         public override void Exit()

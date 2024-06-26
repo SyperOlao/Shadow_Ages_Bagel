@@ -17,12 +17,19 @@ namespace Enemy.Movement.StateMachine
         }
 
         public override void Tick()
-        {
+        {                 
             _timer -= Time.deltaTime;
+            LookAround();
             if (_timer <= 0)
             {
                 StateMachine.SwitchState(new EnemyMoveState(StateMachine));
             }
+        }
+
+        private void LookAround()
+        {
+            var transform = StateMachine.transform;
+            StateMachine.transform.RotateAround(transform.position, transform.up, 2f*Time.deltaTime);
         }
 
         public override void Exit()

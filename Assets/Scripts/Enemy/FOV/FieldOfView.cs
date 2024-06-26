@@ -6,18 +6,20 @@ namespace Enemy.FOV
 {
     public class FieldOfView : MonoBehaviour
     {
-        public bool CanSeePlayer { get; set; }
+        public bool CanSeePlayer { get; private set; }
         [Range(0, 360)] public float Angle;
         public float Radius;
         public GameObject PlayerRef;
-
+        public event Action IsPlayerVisible;
 
         [SerializeField] private LayerMask _targetMask;
         [SerializeField] private LayerMask _obstructionMask;
 
         private readonly Collider[] _results = new Collider[1];
         private const float Delay = 0.2f;
+        private bool _previousPlayerVisible;
 
+        public Vector3 LastPlayerPosition { get; private set; }
         private void Start()
         {
             PlayerRef = GameObject.Find(nameof(Player));
@@ -31,6 +33,11 @@ namespace Enemy.FOV
             {
                 yield return wait;
                 CanSeePlayer = FieldOfViewCheck();
+                if (CanSeePlayer != _previousPlayerVisible)
+                {
+                    IsPlayerVisible?.Invoke();
+                }
+                _previousPlayerVisible = CanSeePlayer;
             }
             
         }
@@ -46,7 +53,13 @@ namespace Enemy.FOV
             if (!(Vector3.Angle(transform.forward, directionToTarget) < Angle / 2)) return false;
 
             var distanceToTarget = Vector3.Distance(currentPosition, targetPosition);
-            return !Physics.Raycast(currentPosition, directionToTarget, distanceToTarget, _obstructionMask);
+            var canSeePlayer =  !Physics.Raycast(currentPosition, directionToTarget, distanceToTarget, _obstructionMask);
+            if (canSeePlayer)
+            {
+                LastPlayerPosition = targetPosition;
+            }
+
+            return canSeePlayer;
         }
     }
 }

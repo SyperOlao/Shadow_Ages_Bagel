@@ -13,28 +13,14 @@ namespace Enemy.Movement.StateMachine
         {
             StateMachine = stateMachine;
         }
+        
 
-        protected void Move()
+        protected void Move(Vector3 startPosition, Vector3 endPosition, float step)
         {
-            var step = StateMachine.MovementSpeed * Time.deltaTime;
-            if (StateMachine.Points.Count <= 0)
-            {
-                StateMachine.SwitchState(new EnemyIdleState(StateMachine, float.PositiveInfinity));
-                return;
-            }
-            var targetPosition = StateMachine.Points[StateMachine.CurrentPoint].point;
-            var targetTime = StateMachine.Points[StateMachine.CurrentPoint].time;
-            var stateMachineTransform = StateMachine.transform;
-            StateMachine.transform.position = Vector3.MoveTowards(stateMachineTransform.position, targetPosition, step);
-
-
-            if (!(Vector3.Distance(stateMachineTransform.position, targetPosition) < StateMachine.PointRadius)) return;
-            
-            ChangeCurrentPoint();
-            StateMachine.SwitchState(new EnemyIdleState(StateMachine, targetTime));
+            StateMachine.transform.position = Vector3.MoveTowards(startPosition, endPosition, step);
         }
 
-        private void ChangeCurrentPoint()
+        protected void ChangeCurrentPoint()
         {
             var currentPoint = StateMachine.CurrentPoint;
             var length = StateMachine.Points.Count;
