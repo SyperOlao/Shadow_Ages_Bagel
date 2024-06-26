@@ -15,12 +15,12 @@ namespace Enemy.FOV
         [SerializeField] private LayerMask _targetMask;
         [SerializeField] private LayerMask _obstructionMask;
 
-        private readonly Collider[] _results = new Collider[1024];
+        private readonly Collider[] _results = new Collider[1];
         private const float Delay = 0.2f;
 
         private void Start()
         {
-            PlayerRef = GameObject.FindGameObjectWithTag("Player");
+            PlayerRef = GameObject.Find(nameof(Player));
             StartCoroutine(FOVRoutine());
         }
 
@@ -32,14 +32,14 @@ namespace Enemy.FOV
                 yield return wait;
                 CanSeePlayer = FieldOfViewCheck();
             }
+            
         }
 
-        private bool FieldOfViewCheck()
+        private bool FieldOfViewCheck() 
         {
             var currentPosition = transform.position;
             var count = Physics.OverlapSphereNonAlloc(currentPosition, Radius, _results, _targetMask);
             if (count <= 0) return false;
-            // if (CanSeePlayer) return false;
             var target = _results[0].transform;
             var targetPosition = target.position;
             var directionToTarget = (targetPosition - currentPosition).normalized;

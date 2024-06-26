@@ -22,12 +22,11 @@ namespace Editor
             Handles.color = Color.yellow;
             Handles.DrawLine(position, position + viewAngle01 * radius);
             Handles.DrawLine(position, position + viewAngle02 * radius);
-            Debug.Log(fov.CanSeePlayer);
-            if (fov.CanSeePlayer)
-            {
-                Handles.color = Color.green;
-                Handles.DrawLine(position, fov.PlayerRef.transform.position);
-            }
+            
+            if (!fov.CanSeePlayer) return;
+            
+            Handles.color = Color.green;
+            Handles.DrawLine(position, fov.PlayerRef.transform.position);
         }
 
 
