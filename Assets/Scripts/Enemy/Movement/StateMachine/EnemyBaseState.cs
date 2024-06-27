@@ -13,7 +13,7 @@ namespace Enemy.Movement.StateMachine
         {
             StateMachine = stateMachine;
         }
-        
+
 
         protected void Move(Vector3 startPosition, Vector3 endPosition, float step)
         {
@@ -22,6 +22,7 @@ namespace Enemy.Movement.StateMachine
 
         protected void FaceToDirection(Vector3 targetPosition, Vector3 followerPosition)
         {
+            if (targetPosition == Vector3.zero) return;
             var directionToTarget = (targetPosition - followerPosition).normalized;
             StateMachine.transform.rotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
         }
@@ -40,7 +41,5 @@ namespace Enemy.Movement.StateMachine
                 StateMachine.CurrentPoint++;
             }
         }
-
- 
     }
 }

@@ -37,7 +37,7 @@ namespace Enemy.Movement.StateMachine
 
         private void SwitchToWarning()
         {
-            if (FieldOfView.CanSeePlayer)
+            if (FieldOfView.CanSeePlayer && CurrentState is not (EnemyAttackState or EnemyWarningState))
             {
                 SwitchState(new EnemyWarningState(this));        
             }

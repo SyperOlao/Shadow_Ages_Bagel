@@ -5,18 +5,18 @@ namespace Common.StateMachine
 {
     public class StateMachine : MonoBehaviour
     {
-        private State _currentState;
+        protected State CurrentState { get; private set; }
 
         public void SwitchState(State state)
         {
-            _currentState?.Exit();
-            _currentState = state;
-            _currentState.Enter();
+            CurrentState?.Exit();
+            CurrentState = state;
+            CurrentState.Enter();
         }
 
         private void Update()
         {
-            _currentState?.Tick();
+            CurrentState?.Tick();
         }
         
     }
