@@ -25,7 +25,9 @@ namespace Enemy.Movement.StateMachine
             if (targetPosition == Vector3.zero) return;
             var directionToTarget = (targetPosition - followerPosition).normalized;
             StateMachine.transform.rotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
+            
         }
+        
 
         protected void ChangeCurrentPoint()
         {

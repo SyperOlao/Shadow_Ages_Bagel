@@ -17,13 +17,11 @@ namespace Enemy.Movement.StateMachine
         public override void Tick()
         {
             MoveToPlayer();
-            if (!StateMachine.FieldOfView.IsPlayerPositionInCircle)
+            if (StateMachine.FieldOfView.IsPlayerPositionInCircle) return;
+            _timer -= Time.deltaTime;
+            if (_timer <= 0)
             {
-                _timer -= Time.deltaTime;
-                if (_timer <= 0)
-                {
-                    StateMachine.SwitchState(new EnemyWarningState(StateMachine));
-                }
+                StateMachine.SwitchState(new EnemyWarningState(StateMachine));
             }
         }
         

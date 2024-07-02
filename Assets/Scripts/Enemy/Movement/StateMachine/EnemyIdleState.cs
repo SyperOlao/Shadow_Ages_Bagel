@@ -21,6 +21,8 @@ namespace Enemy.Movement.StateMachine
 
         public override void Enter()
         {
+            var playerPosition = StateMachine.FieldOfView.LastPlayerPosition;
+            FaceToDirection( playerPosition,  StateMachine.transform.position);
             _originalRotation = StateMachine.transform.rotation;
             _targetRotation = Quaternion.Euler(_rotationAxis * _rotationAngle) * _originalRotation;
         }

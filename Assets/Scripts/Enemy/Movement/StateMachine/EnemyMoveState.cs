@@ -27,6 +27,7 @@ namespace Enemy.Movement.StateMachine
             var step = StateMachine.MovementSpeed * Time.deltaTime;
             if (StateMachine.Points.Count <= 0)
             {
+                   
                 StateMachine.SwitchState(new EnemyIdleState(StateMachine, float.PositiveInfinity));
                 return;
             }
