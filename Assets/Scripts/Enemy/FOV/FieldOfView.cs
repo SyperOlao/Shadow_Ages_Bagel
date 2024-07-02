@@ -20,6 +20,8 @@ namespace Enemy.FOV
         private bool _previousPlayerVisible;
 
         public Vector3 LastPlayerPosition { get; private set; }
+        public Vector3 PlayerPositionInCircle { get; private set; }
+        public bool IsPlayerPositionInCircle { get; private set; }
         private void Start()
         {
             PlayerRef = GameObject.Find(nameof(Player));
@@ -41,15 +43,18 @@ namespace Enemy.FOV
             }
             
         }
-
+        // TODO:: переписать 
         private bool FieldOfViewCheck() 
         {
             var currentPosition = transform.position;
             var count = Physics.OverlapSphereNonAlloc(currentPosition, Radius, _results, _targetMask);
+            IsPlayerPositionInCircle = false;
             if (count <= 0) return false;
+            IsPlayerPositionInCircle = true;
             var target = _results[0].transform;
             var targetPosition = target.position;
             var directionToTarget = (targetPosition - currentPosition).normalized;
+            PlayerPositionInCircle = targetPosition;
             if (!(Vector3.Angle(transform.forward, directionToTarget) < Angle / 2)) return false;
 
             var distanceToTarget = Vector3.Distance(currentPosition, targetPosition);
