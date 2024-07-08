@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Offset: {x: 0, y: 0, z: -5}
+  m_Offset: {x: 0, y: 0, z: -7}
   m_ApplyAfter: 1
   m_PreserveComposition: 0
 --- !u!114 &92262457
@@ -483,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 6.220223, z: -0.48393798}
+  m_LocalPosition: {x: 0, y: 7.7523117, z: -1.7695131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -711,9 +711,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0, z: 0}
-  FieldOfView: {fileID: 1462552683}
-  Points: []
-  CurrentPoint: 0
+  _fieldOfView: {fileID: 1462552683}
+  _points: []
+  _currentPoint: 0
 --- !u!95 &1462552685
 Animator:
   serializedVersion: 5
@@ -1212,6 +1212,7 @@ PrefabInstance:
     - {fileID: 4700084255349903472, guid: 6510297694b060046833c72e1072d2b2, type: 3}
     - {fileID: 7355875097526477254, guid: 6510297694b060046833c72e1072d2b2, type: 3}
     - {fileID: 1629928636423121244, guid: 6510297694b060046833c72e1072d2b2, type: 3}
+    - {fileID: 9143886412502262290, guid: 6510297694b060046833c72e1072d2b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1306,15 +1307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: {x: 0, y: 0, z: 0}
-  FieldOfView: {fileID: 1749714314}
-  Points:
-  - point: {x: 2.85, y: 2.9, z: -7.98}
-    time: 1
-  - point: {x: 1.57, y: 1.9, z: 4.26}
-    time: 3
-  - point: {x: -4.87, y: 2.71, z: -1.22}
-    time: 4
-  CurrentPoint: 0
+  _fieldOfView: {fileID: 1749714314}
+  _points: []
+  _currentPoint: 0
 --- !u!95 &1749714312
 Animator:
   serializedVersion: 5

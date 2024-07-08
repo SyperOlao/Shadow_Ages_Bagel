@@ -20,9 +20,17 @@ namespace Enemy.Movement.StateMachine
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
 
-        [SerializeField] public FieldOfView FieldOfView;
-        [SerializeField] public List<PointsWithTimeStandby> Points;
-        [SerializeField] public int CurrentPoint;
+        [SerializeField] private FieldOfView _fieldOfView;
+        [SerializeField] private List<PointsWithTimeStandby> _points;
+        [SerializeField] private int _currentPoint;
+        
+        public List<PointsWithTimeStandby> Points => _points;
+        public FieldOfView FieldOfView => _fieldOfView;
+        public int CurrentPoint
+        {
+            get => _currentPoint;
+            set => _currentPoint = value;
+        }
 
         private void OnEnable()
         {
