@@ -4,10 +4,9 @@ using UnityEngine.InputSystem;
 
 namespace Player.Attack
 {
-    [RequireComponent(typeof(Camera))]
     public class ClickToExplode: MonoBehaviour
     {
-        private Camera Camera;
+        [SerializeField] private Camera Camera;
         [SerializeField] private ParticleSystem ParticleSystemPrefab;
         public int MaxHits = 25;
         public float Radius = 10f;
@@ -21,7 +20,6 @@ namespace Player.Attack
 
         private void Awake()
         {
-            Camera = GetComponent<Camera>();
             Hits = new Collider[MaxHits];
         }
 
