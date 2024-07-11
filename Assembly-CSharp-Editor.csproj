@@ -869,6 +869,10 @@
       <Project>{58347722-cd04-2ebb-8fd2-b9d681d44899}</Project>
       <Name>com.unity.cinemachine.editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.csproj">
+      <Project>{f77370f0-80d4-e71e-ea4a-314acf66df03}</Project>
+      <Name>Unity.AI.Navigation</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Burst.Editor.csproj">
       <Project>{51001260-f70d-ffff-c362-2b224a0622c9}</Project>
       <Name>Unity.Burst.Editor</Name>
@@ -949,6 +953,10 @@
       <Project>{26d476f3-7f86-4cc6-2533-e0d7ca91fb2c}</Project>
       <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Updater.csproj">
+      <Project>{6f9ccc13-2d11-f4ae-6259-217f78e6b86b}</Project>
+      <Name>Unity.AI.Navigation.Updater</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Editor.csproj">
       <Project>{eacd1d0d-b427-0ff2-58db-feb24e572b5a}</Project>
       <Name>Unity.VisualScripting.State.Editor</Name>
@@ -969,6 +977,10 @@
       <Project>{3891e6c5-adfb-a759-ef68-303857a6b8ca}</Project>
       <Name>Unity.Searcher.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.csproj">
+      <Project>{4808129c-0985-16b7-50c1-9fd74a4b28fe}</Project>
+      <Name>Unity.AI.Navigation.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{729a17cd-db01-5ca8-3a53-42a178b7061c}</Project>
       <Name>Unity.VisualScripting.State</Name>
@@ -980,6 +992,10 @@
     <ProjectReference Include="Cinemachine.csproj">
       <Project>{0e161b45-f04e-a717-3845-ee0e057421ec}</Project>
       <Name>Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
+      <Project>{cc29c00d-5edc-7e60-bfd9-54b49a74f6fb}</Project>
+      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

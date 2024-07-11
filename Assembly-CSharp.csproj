@@ -45,32 +45,32 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyBaseState.cs" />
+     <Compile Include="Assets\Scripts\Spawner\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemy\FOV\FieldOfView.cs" />
+     <Compile Include="Assets\Scripts\Common\Timer\Timer.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+     <Compile Include="Assets\Scripts\DataClasses\PointsWithTimeStandby.cs" />
+     <Compile Include="Assets\Scripts\Player\Movement\InputReader.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Health\View\HealthView.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyIdleState.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyWarningState.cs" />
+     <Compile Include="Assets\Scripts\UI\Battle\HealthProgressBar.cs" />
+     <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerMoveState.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerStateMachine.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyAttackState.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyBaseState.cs" />
-     <Compile Include="Assets\Scripts\Spawner\EnemySpawner.cs" />
-     <Compile Include="Assets\Scripts\Enemy\FOV\FieldOfView.cs" />
-     <Compile Include="Assets\Scripts\Common\Timer\Timer.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
-     <Compile Include="Assets\Scripts\DataClasses\PointsWithTimeStandby.cs" />
-     <Compile Include="Assets\Scripts\Player\Movement\InputReader.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Health\View\HealthView.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\ClickToExplode.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\Health.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyIdleState.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerBaseState.cs" />
      <Compile Include="Assets\Scripts\Common\StateMachine\State.cs" />
-     <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyWarningState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyMoveState.cs" />
-     <Compile Include="Assets\Scripts\UI\Battle\HealthProgressBar.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\FaceCamera\FaceCamera.cs" />
      <Compile Include="Assets\Scripts\Player\Movement\Controls.cs" />
-     <Compile Include="Assets\Scripts\Player\Movement\StateMachine\PlayerMoveState.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
      <Folder Include="Assets" />
      <None Include="Library\PackageCache\com.unity.settings-manager@2.0.1\package.json" />
@@ -85,6 +85,7 @@
      <Folder Include="Assets\Models\Plants" />
      <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ide.rider@3.0.24\Rider" />
+     <Folder Include="Assets\Particle" />
      <Folder Include="Assets\Scripts\UI\Battle" />
      <Folder Include="Assets\Models\Plants\Spruce" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7" />
@@ -109,6 +110,7 @@
      <None Include="Library\PackageCache\com.unity.timeline@1.7.5\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\Gizmos" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\ValidationConfig.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35" />
      <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\package.json" />
@@ -118,6 +120,7 @@
      <None Include="Library\PackageCache\com.unity.timeline@1.7.5\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.3.1\package.json" />
      <Folder Include="Library\PackageCache\com.unity.timeline@1.7.5" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\Tests" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6" />
      <Folder Include="Library\PackageCache\com.unity.burst@1.8.7" />
@@ -142,6 +145,7 @@
      <None Include="Library\PackageCache\com.unity.performance.profile-analyzer@1.2.2\package.json" />
      <Folder Include="Assets\Animations\Character" />
      <Folder Include="Library\PackageCache\com.unity.inputsystem@1.6.3" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5" />
      <Folder Include="Assets\Scripts\Common" />
      <Folder Include="Assets\Materials" />
      <Folder Include="Assets\Models\Plants\Oak" />
@@ -167,6 +171,7 @@
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.3.1" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\package.json" />
      <Folder Include="Assets\Models\Enemies\buzz\textures" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\EditorResources\Overlay" />
      <Folder Include="Assets\Scripts\Common\Timer" />
      <None Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6" />
@@ -176,6 +181,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.3.1\ValidationConfig.json" />
      <Folder Include="Assets\Scripts\Enemy\Movement\StateMachine" />
      <Folder Include="Assets\Scenes" />
+     <None Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
      <Folder Include="Assets\Models\Character\alhaitham" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
@@ -187,6 +193,7 @@
      <Folder Include="Assets\Models\Enemies\buzz\Materials" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Presets" />
      <Folder Include="Assets\Models\Character\Knight" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\EditorResources" />
      <Folder Include="Assets\Resouces\Prefabs\Enemies" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib" />
      <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.5\ValidationExceptions.json" />
@@ -877,6 +884,10 @@
       <Project>{58347722-cd04-2ebb-8fd2-b9d681d44899}</Project>
       <Name>com.unity.cinemachine.editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.csproj">
+      <Project>{f77370f0-80d4-e71e-ea4a-314acf66df03}</Project>
+      <Name>Unity.AI.Navigation</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Burst.Editor.csproj">
       <Project>{51001260-f70d-ffff-c362-2b224a0622c9}</Project>
       <Name>Unity.Burst.Editor</Name>
@@ -957,6 +968,10 @@
       <Project>{26d476f3-7f86-4cc6-2533-e0d7ca91fb2c}</Project>
       <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Updater.csproj">
+      <Project>{6f9ccc13-2d11-f4ae-6259-217f78e6b86b}</Project>
+      <Name>Unity.AI.Navigation.Updater</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Editor.csproj">
       <Project>{eacd1d0d-b427-0ff2-58db-feb24e572b5a}</Project>
       <Name>Unity.VisualScripting.State.Editor</Name>
@@ -977,6 +992,10 @@
       <Project>{3891e6c5-adfb-a759-ef68-303857a6b8ca}</Project>
       <Name>Unity.Searcher.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.csproj">
+      <Project>{4808129c-0985-16b7-50c1-9fd74a4b28fe}</Project>
+      <Name>Unity.AI.Navigation.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{729a17cd-db01-5ca8-3a53-42a178b7061c}</Project>
       <Name>Unity.VisualScripting.State</Name>
@@ -988,6 +1007,10 @@
     <ProjectReference Include="Cinemachine.csproj">
       <Project>{0e161b45-f04e-a717-3845-ee0e057421ec}</Project>
       <Name>Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
+      <Project>{cc29c00d-5edc-7e60-bfd9-54b49a74f6fb}</Project>
+      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
