@@ -14,8 +14,8 @@ namespace Enemy
         [SerializeField] private Health.Health _health;
         [SerializeField] private HealthProgressBar _healthBar;
         
-        
-        public void OnTakeDamage(int damage)
+
+        public void OnTakeDamage(float damage)
         {
             _health.TakeDamage(damage);
         

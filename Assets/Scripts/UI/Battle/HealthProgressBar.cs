@@ -12,7 +12,7 @@ namespace UI.Battle
     public class HealthProgressBar : MonoBehaviour
     {
         [SerializeField] private Image _progressImage;
-        [SerializeField] private float _defaultSpeed = 1f;
+        [SerializeField] private float _defaultSpeed = 2f;
         [SerializeField] private Gradient _colorGradient;
         [SerializeField] private UnityEvent<float> _onProgress;
         [SerializeField] private UnityEvent _onCompleted;
@@ -27,7 +27,7 @@ namespace UI.Battle
             EditorGUIUtility.PingObject(gameObject);
 #endif
         }
-        
+
         private void OnEnable()
         {
             _health.Changed += SetProgress;
@@ -37,21 +37,23 @@ namespace UI.Battle
         {
             _health.Changed -= SetProgress;
         }
-        
+
         public void SetProgress(float progress)
         {
+            Debug.Log("SetProgress" + progress);
             SetProgress(progress, _defaultSpeed);
         }
-        
+
         private void SetProgress(float progress, float speed)
         {
             if (progress is < 0 or > 1)
             {
-                Debug.LogWarning($"Invalid progress passed, expected value is between 0 and 1, got {progress}. Clamping.");
+                Debug.LogWarning(
+                    $"Invalid progress passed, expected value is between 0 and 1, got {progress}. Clamping.");
                 progress = Mathf.Clamp01(progress);
             }
 
-            if (!(progress - _progressImage.fillAmount > 0.001)) return;
+            //    if (!(progress - _progressImage.fillAmount > 0.001)) return;
             if (_animationCoroutine != null)
             {
                 StopCoroutine(_animationCoroutine);
@@ -59,9 +61,11 @@ namespace UI.Battle
 
             _animationCoroutine = StartCoroutine(AnimateProgress(progress, speed));
         }
-        
+
         private IEnumerator AnimateProgress(float progress, float speed)
         {
+            Debug.Log("progress" + progress);
+            Debug.Log("speed" + speed);
             var time = 0f;
             var initialProgress = _progressImage.fillAmount;
 
