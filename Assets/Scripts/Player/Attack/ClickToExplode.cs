@@ -38,7 +38,8 @@ namespace Player.Attack
                     {
                         float distance = Vector3.Distance(hit.point, Hits[i].transform.position);
                         int damage = Mathf.FloorToInt(Mathf.Lerp(MaxDamage, MinDamage, distance / Radius));
-                        if (Hits[i].TryGetComponent<Rigidbody>(out Rigidbody rigidbody) && !Physics.Raycast(hit.point, (Hits[i].transform.position - hit.point).normalized, distance, BlockExplosionLayer.value))
+                        if (Hits[i].TryGetComponent<Rigidbody>(out Rigidbody rigidbody) && !Physics.Raycast(hit.point, 
+                            (Hits[i].transform.position - hit.point).normalized, distance, BlockExplosionLayer.value))
                         {
                             rigidbody.AddExplosionForce(ExplosiveForce, hit.point, Radius);
                         }
