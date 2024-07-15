@@ -985,17 +985,17 @@
       <Project>{729a17cd-db01-5ca8-3a53-42a178b7061c}</Project>
       <Name>Unity.VisualScripting.State</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{8e0e813c-4e91-9e22-5a51-6e68a64b6216}</Project>
-      <Name>Unity.VSCode.Editor</Name>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
+      <Project>{cc29c00d-5edc-7e60-bfd9-54b49a74f6fb}</Project>
+      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
     </ProjectReference>
     <ProjectReference Include="Cinemachine.csproj">
       <Project>{0e161b45-f04e-a717-3845-ee0e057421ec}</Project>
       <Name>Cinemachine</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
-      <Project>{cc29c00d-5edc-7e60-bfd9-54b49a74f6fb}</Project>
-      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
+    <ProjectReference Include="Unity.VSCode.Editor.csproj">
+      <Project>{8e0e813c-4e91-9e22-5a51-6e68a64b6216}</Project>
+      <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

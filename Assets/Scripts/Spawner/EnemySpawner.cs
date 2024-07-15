@@ -8,70 +8,68 @@ namespace Spawner
 {
     public class EnemySpawner : MonoBehaviour
     {
-        
-        [SerializeField] private GameObject _prefab;
-        [SerializeField] private Camera _camera;
-        [SerializeField] private Transform _transform;
-        [SerializeField] private int _poolMaxSize = 10;
-        [SerializeField] private int _poolCapacity = 2;
-        [SerializeField] private Canvas HealthBarCanvas;
-        
-        
-        private NavMeshTriangulation Triangulation;
+        [SerializeField] private GameObject prefab;
+        public Camera Camera;
+        [SerializeField] private int poolMaxSize = 10;
+        [SerializeField] private int poolCapacity = 2;
+        [SerializeField] private Canvas healthBarCanvas;
+
+
+        private NavMeshTriangulation _triangulation;
         private ObjectPool<GameObject> _pool;
 
         private void Awake()
         {
+            _triangulation = NavMesh.CalculateTriangulation();
             _pool = new ObjectPool<GameObject>(
                 createFunc: OnCreate,
                 actionOnGet: ActionOnGet,
                 actionOnRelease: obj => obj.SetActive(false),
                 actionOnDestroy: Destroy,
                 collectionCheck: true,
-                defaultCapacity: _poolCapacity,
-                maxSize: _poolMaxSize
+                defaultCapacity: poolCapacity,
+                maxSize: poolMaxSize
             );
         }
 
         private GameObject OnCreate()
         {
-            
-            return Instantiate(_prefab);
-            StartCoroutine(SpawnAgents());
-       
+            var obj = Instantiate(prefab, ChooseRandomPointOnNavMesh(_triangulation), Quaternion.identity);
+            var navMeshAgent = obj.GetComponent<NavMeshAgent>();
+            navMeshAgent.GetComponent<Enemy.Enemy>().SetupHealthBar(healthBarCanvas, Camera);
+
+            navMeshAgent.enabled = true; 
+            return obj;
         }
-        
+
         private static Vector3 ChooseRandomPointOnNavMesh(NavMeshTriangulation triangulation)
         {
             var firstVertex = Random.Range(0, triangulation.vertices.Length);
             var secondVertex = Random.Range(0, triangulation.vertices.Length);
 
-            return Vector3.Lerp(triangulation.vertices[firstVertex], triangulation.vertices[secondVertex], Random.value);
+            return Vector3.Lerp(triangulation.vertices[firstVertex], triangulation.vertices[secondVertex],
+                Random.value);
         }
 
         private IEnumerator SpawnAgents()
         {
-            var wait = new WaitForSeconds(1f / _poolCapacity);
-            for (var i = 0; i < _poolMaxSize; i++)
+            var wait = new WaitForSeconds(1f / poolCapacity);
+            for (var i = 0; i < poolMaxSize; i++)
             {
-                var agent = Instantiate(_prefab, ChooseRandomPointOnNavMesh(Triangulation), Quaternion.identity);
-              //  agent.GetComponent<RandomPositionMover>().Triangulation = Triangulation;
-                agent.GetComponent<Enemy.Enemy>().SetupHealthBar(HealthBarCanvas, _camera);
-                
+                _pool.Get();
                 yield return wait;
             }
         }
-        
+
         private void ActionOnGet(GameObject obj)
         {
-            obj.transform.position = _transform.position;
             obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
             obj.SetActive(true);
         }
 
         private void Start()
         {
-            Invoke(nameof(GetObject), 0.0f);
+            StartCoroutine(SpawnAgents());
         }
 
         private void GetObject()

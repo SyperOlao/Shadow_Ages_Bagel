@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\Enemy\Movement\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyAttackState.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Health\FollowTarget\FollowTarget.cs" />
      <Compile Include="Assets\Scripts\Enemy\Movement\StateMachine\EnemyStateMachine.cs" />
      <Compile Include="Assets\Scripts\Player\Attack\ClickToExplode.cs" />
      <Compile Include="Assets\Scripts\Enemy\Health\Health.cs" />
@@ -96,6 +97,7 @@
      <Folder Include="Assets\Scripts\Player\Animations" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\package.json" />
      <Folder Include="Assets\Models\Character" />
+     <Folder Include="Assets\Scenes\SampleScene" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Graphics" />
      <Folder Include="Assets\Sprites" />
      <Folder Include="Assets\Scripts\Enemy" />
@@ -115,6 +117,8 @@
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35" />
      <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\package.json" />
      <Folder Include="Library\PackageCache\com.unity.performance.profile-analyzer@1.2.2" />
+     <Folder Include="Assets\Scripts\Enemy\Health\FollowTarget" />
+     <Folder Include="Assets\Models\Character\Wednesday" />
      <None Include="Library\PackageCache\com.unity.visualscripting@1.8.0\package.json" />
      <None Include="Library\PackageCache\com.unity.editorcoroutines@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.timeline@1.7.5\ValidationExceptions.json" />
@@ -1000,17 +1004,17 @@
       <Project>{729a17cd-db01-5ca8-3a53-42a178b7061c}</Project>
       <Name>Unity.VisualScripting.State</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{8e0e813c-4e91-9e22-5a51-6e68a64b6216}</Project>
-      <Name>Unity.VSCode.Editor</Name>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
+      <Project>{cc29c00d-5edc-7e60-bfd9-54b49a74f6fb}</Project>
+      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
     </ProjectReference>
     <ProjectReference Include="Cinemachine.csproj">
       <Project>{0e161b45-f04e-a717-3845-ee0e057421ec}</Project>
       <Name>Cinemachine</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
-      <Project>{cc29c00d-5edc-7e60-bfd9-54b49a74f6fb}</Project>
-      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
+    <ProjectReference Include="Unity.VSCode.Editor.csproj">
+      <Project>{8e0e813c-4e91-9e22-5a51-6e68a64b6216}</Project>
+      <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

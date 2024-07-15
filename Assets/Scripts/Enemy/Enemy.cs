@@ -32,12 +32,12 @@ namespace Enemy
             Destroy(_healthBar.gameObject, 1f);
         }
         
-        public void SetupHealthBar(Canvas canvas, Camera camera)
+        public void SetupHealthBar(Canvas canvas, Camera Camera)
         {
             _healthBar.transform.SetParent(canvas.transform);
             if (_healthBar.TryGetComponent(out FaceCamera faceCamera))
             {
-                faceCamera.Camera = camera;
+                faceCamera.Camera = Camera;
             }
         }
     }
