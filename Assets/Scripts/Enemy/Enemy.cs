@@ -1,7 +1,9 @@
-﻿using Enemy.FOV;
+﻿using System;
+using Enemy.FOV;
 using Enemy.Health.FaceCamera;
 using Enemy.Movement.StateMachine;
 using Interfaces;
+using Spawner;
 using UI.Battle;
 using UnityEngine;
 
@@ -11,33 +13,34 @@ namespace Enemy
     [RequireComponent(typeof(EnemyStateMachine))]
     public class Enemy: MonoBehaviour, IDamageable
     {
-        [SerializeField] private Health.Health _health;
-        [SerializeField] private HealthProgressBar _healthBar;
-        
+        [SerializeField] private Health.Health health;
+        [SerializeField] private HealthProgressBar healthBar;
+        public event Action<GameObject> Die;
 
         public void OnTakeDamage(float damage)
         {
-            _health.TakeDamage(damage);
-        
-            if (_health.CurrentHealth < 0)
+            health.TakeDamage(damage);
+
+            if (health.CurrentHealth < 0)
             {
-                OnDied();
+                Die?.Invoke(gameObject);
             }
         }
         
         
         private void OnDied()
         {
-            Destroy(gameObject, 1f);
-            Destroy(_healthBar.gameObject, 1f);
+            
+            // Destroy(gameObject, 1f);
+            // Destroy(healthBar.gameObject, 1f);
         }
         
-        public void SetupHealthBar(Canvas canvas, Camera Camera)
+        public void SetupHealthBar(Canvas canvas, Camera camera1)
         {
-            _healthBar.transform.SetParent(canvas.transform);
-            if (_healthBar.TryGetComponent(out FaceCamera faceCamera))
+            healthBar.transform.SetParent(canvas.transform);
+            if (healthBar.TryGetComponent(out FaceCamera faceCamera))
             {
-                faceCamera.Camera = Camera;
+                faceCamera.Camera = camera1;
             }
         }
     }

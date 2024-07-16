@@ -9,10 +9,11 @@ namespace Spawner
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private GameObject prefab;
-        public Camera Camera;
+        [SerializeField] private Camera playerCamera;
         [SerializeField] private int poolMaxSize = 10;
         [SerializeField] private int poolCapacity = 2;
         [SerializeField] private Canvas healthBarCanvas;
+        [SerializeField] private Enemy.Enemy enemy;
 
 
         private NavMeshTriangulation _triangulation;
@@ -24,7 +25,7 @@ namespace Spawner
             _pool = new ObjectPool<GameObject>(
                 createFunc: OnCreate,
                 actionOnGet: ActionOnGet,
-                actionOnRelease: obj => obj.SetActive(false),
+                actionOnRelease: ActionOnRelease,
                 actionOnDestroy: Destroy,
                 collectionCheck: true,
                 defaultCapacity: poolCapacity,
@@ -32,13 +33,23 @@ namespace Spawner
             );
         }
 
+        private void OnEnable()
+        {
+            enemy.Die += ActionOnRelease;
+        }
+
+        private void OnDisable()
+        {
+            enemy.Die -= ActionOnRelease;
+        }
+
         private GameObject OnCreate()
         {
             var obj = Instantiate(prefab, ChooseRandomPointOnNavMesh(_triangulation), Quaternion.identity);
             var navMeshAgent = obj.GetComponent<NavMeshAgent>();
-            navMeshAgent.GetComponent<Enemy.Enemy>().SetupHealthBar(healthBarCanvas, Camera);
+            navMeshAgent.GetComponent<Enemy.Enemy>().SetupHealthBar(healthBarCanvas, playerCamera);
 
-            navMeshAgent.enabled = true; 
+            navMeshAgent.enabled = true;
             return obj;
         }
 
@@ -56,15 +67,20 @@ namespace Spawner
             var wait = new WaitForSeconds(1f / poolCapacity);
             for (var i = 0; i < poolMaxSize; i++)
             {
-                _pool.Get();
+                GetObject();
                 yield return wait;
             }
         }
 
-        private void ActionOnGet(GameObject obj)
+        private static void ActionOnGet(GameObject obj)
         {
             obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
             obj.SetActive(true);
+        }
+
+        private static void ActionOnRelease(GameObject obj)
+        {
+            obj.SetActive(false);
         }
 
         private void Start()

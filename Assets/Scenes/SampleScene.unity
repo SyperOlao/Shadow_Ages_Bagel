@@ -1142,10 +1142,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 915888044807711996, guid: 62b9599ff6277fc49b61d0f843baf7e4, type: 3}
-  Camera: {fileID: 963194227}
+  playerCamera: {fileID: 963194227}
   poolMaxSize: 10
   poolCapacity: 2
   healthBarCanvas: {fileID: 2011565243}
+  enemy: {fileID: 7974081345283672652, guid: 62b9599ff6277fc49b61d0f843baf7e4, type: 3}
 --- !u!1 &2011565240
 GameObject:
   m_ObjectHideFlags: 0

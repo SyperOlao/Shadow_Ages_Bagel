@@ -11,17 +11,17 @@ namespace UI.Battle
 {
     public class HealthProgressBar : MonoBehaviour
     {
-        [SerializeField] private Image _progressImage;
-        [SerializeField] private float _defaultSpeed = 3f;
-        [SerializeField] private Gradient _colorGradient;
-        [SerializeField] private UnityEvent<float> _onProgress;
-        [SerializeField] private UnityEvent _onCompleted;
-        [SerializeField] private Health _health;
+        [SerializeField] private Image progressImage;
+        [SerializeField] private float defaultSpeed = 3f;
+        [SerializeField] private Gradient colorGradient;
+        [SerializeField] private UnityEvent<float> onProgress;
+        [SerializeField] private UnityEvent onCompleted;
+        [SerializeField] private Health health;
         private Coroutine _animationCoroutine;
 
         private void Start()
         {
-            if (_progressImage.type == Image.Type.Filled) return;
+            if (progressImage.type == Image.Type.Filled) return;
             enabled = false;
 #if UNITY_EDITOR
             EditorGUIUtility.PingObject(gameObject);
@@ -30,29 +30,28 @@ namespace UI.Battle
 
         private void OnEnable()
         {
-            _health.Changed += SetProgress;
+            health.Changed += SetProgress;
         }
 
         private void OnDisable()
         {
-            _health.Changed -= SetProgress;
+            health.Changed -= SetProgress;
         }
 
-        public void SetProgress(float damage)
+        private void SetProgress(float damage)
         {
-            SetProgress(_health.CurrentHealth/_health.MaxHealth, _defaultSpeed);
+            
+            SetProgress(health.CurrentHealth / health.MaxHealth, defaultSpeed);
         }
 
         private void SetProgress(float progress, float speed)
         {
             if (progress is < 0 or > 1)
             {
-                Debug.LogWarning(
-                    $"Invalid progress passed, expected value is between 0 and 1, got {progress}. Clamping.");
                 progress = Mathf.Clamp01(progress);
             }
 
-            //    if (!(progress - _progressImage.fillAmount > 0.001)) return;
+            // if (!(progress - progressImage.fillAmount > 0.001)) return;
             if (_animationCoroutine != null)
             {
                 StopCoroutine(_animationCoroutine);
@@ -63,27 +62,23 @@ namespace UI.Battle
 
         private IEnumerator AnimateProgress(float progress, float speed)
         {
-            Debug.Log("progress " + progress);
-            Debug.Log("speed " + speed);
             var time = 0f;
-            var initialProgress = _progressImage.fillAmount;
-            Debug.Log("initialProgress " + initialProgress);
+            var initialProgress = progressImage.fillAmount;
             while (time < 1)
             {
-                _progressImage.fillAmount = Mathf.Lerp(initialProgress, progress, time);
+                progressImage.fillAmount = Mathf.Lerp(initialProgress, progress, time);
                 time += Time.deltaTime * speed;
 
-                _progressImage.color = _colorGradient.Evaluate(1 - _progressImage.fillAmount);
-                Debug.Log("_progressImage.fillAmount " + _progressImage.fillAmount);
-                _onProgress?.Invoke(_progressImage.fillAmount);
+                progressImage.color = colorGradient.Evaluate(1 - progressImage.fillAmount);
+                onProgress?.Invoke(progressImage.fillAmount);
                 yield return null;
             }
 
-            _progressImage.fillAmount = progress;
-            _progressImage.color = _colorGradient.Evaluate(1 - _progressImage.fillAmount);
+            progressImage.fillAmount = progress;
+            progressImage.color = colorGradient.Evaluate(1 - progressImage.fillAmount);
 
-            _onProgress?.Invoke(progress);
-            _onCompleted?.Invoke();
+            onProgress?.Invoke(progress);
+            onCompleted?.Invoke();
         }
     }
 }

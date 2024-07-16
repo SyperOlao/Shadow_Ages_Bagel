@@ -1040,9 +1040,9 @@
       <Project>{58347722-cd04-2ebb-8fd2-b9d681d44899}</Project>
       <Name>com.unity.cinemachine.editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.AI.Navigation.csproj">
-      <Project>{f77370f0-80d4-e71e-ea4a-314acf66df03}</Project>
-      <Name>Unity.AI.Navigation</Name>
+    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
+      <Project>{32b6f3f9-9865-904b-019d-f167828be773}</Project>
+      <Name>Unity.Postprocessing.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.Editor.csproj">
       <Project>{51001260-f70d-ffff-c362-2b224a0622c9}</Project>
@@ -1056,9 +1056,9 @@
       <Project>{c3c3847e-2c06-c616-182e-1b6897512273}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{32b6f3f9-9865-904b-019d-f167828be773}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
+    <ProjectReference Include="Unity.AI.Navigation.csproj">
+      <Project>{f77370f0-80d4-e71e-ea4a-314acf66df03}</Project>
+      <Name>Unity.AI.Navigation</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{c7110571-2561-b251-4cdc-4f19bd6d4cc9}</Project>
@@ -1083,10 +1083,6 @@
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{357f4984-5487-8028-1f17-05b496089be5}</Project>
       <Name>Unity.Rider.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{9e4b8fb4-45b2-92cb-ff86-8883c3d91cf5}</Project>
-      <Name>Unity.Postprocessing.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
       <Project>{aea3628d-4d5a-f87f-ec87-57d6ab86decf}</Project>
@@ -1135,6 +1131,10 @@
     <ProjectReference Include="Unity.AI.Navigation.Updater.csproj">
       <Project>{6f9ccc13-2d11-f4ae-6259-217f78e6b86b}</Project>
       <Name>Unity.AI.Navigation.Updater</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
+      <Project>{9e4b8fb4-45b2-92cb-ff86-8883c3d91cf5}</Project>
+      <Name>Unity.Postprocessing.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Editor.csproj">
       <Project>{eacd1d0d-b427-0ff2-58db-feb24e572b5a}</Project>
