@@ -14,34 +14,24 @@ namespace Enemy
     public class Enemy: MonoBehaviour, IDamageable
     {
         [SerializeField] private Health.Health health;
-        [SerializeField] private HealthProgressBar healthBar;
-        public event Action<GameObject> Die;
+
+        public Health.Health Health => health;
+        private EnemySpawner _enemySpawner;
+
+        private void Awake()
+        {
+            _enemySpawner = FindObjectOfType<EnemySpawner>();
+        }
 
         public void OnTakeDamage(float damage)
         {
             health.TakeDamage(damage);
 
-            if (health.CurrentHealth < 0)
+            if (health.CurrentHealth <= 0)
             {
-                Die?.Invoke(gameObject);
+                _enemySpawner.ActionOnRelease(gameObject);
             }
         }
         
-        
-        private void OnDied()
-        {
-            
-            // Destroy(gameObject, 1f);
-            // Destroy(healthBar.gameObject, 1f);
-        }
-        
-        public void SetupHealthBar(Canvas canvas, Camera camera1)
-        {
-            healthBar.transform.SetParent(canvas.transform);
-            if (healthBar.TryGetComponent(out FaceCamera faceCamera))
-            {
-                faceCamera.Camera = camera1;
-            }
-        }
     }
 }

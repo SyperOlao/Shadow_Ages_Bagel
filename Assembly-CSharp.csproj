@@ -356,6 +356,7 @@
      <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\Unity.Burst.Unsafe.xml" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials" />
+     <Folder Include="Assets\Resouces\Prefabs\UI" />
      <None Include="Library\PackageCache\com.unity.postprocessing@3.2.2\PostProcessing\Shaders\API\Vulkan.hlsl" />
      <Folder Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Shaders" />
      <None Include="Library\PackageCache\com.unity.burst@1.8.7\package.json" />

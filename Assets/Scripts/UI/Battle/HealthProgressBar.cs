@@ -17,6 +17,13 @@ namespace UI.Battle
         [SerializeField] private UnityEvent<float> onProgress;
         [SerializeField] private UnityEvent onCompleted;
         [SerializeField] private Health health;
+
+        public Health Health
+        {
+            get => health;
+            set => health = value;
+        }
+
         private Coroutine _animationCoroutine;
 
         private void Start()
@@ -51,7 +58,7 @@ namespace UI.Battle
                 progress = Mathf.Clamp01(progress);
             }
 
-            // if (!(progress - progressImage.fillAmount > 0.001)) return;
+            if (!(progress - progressImage.fillAmount < 0.001)) return;
             if (_animationCoroutine != null)
             {
                 StopCoroutine(_animationCoroutine);

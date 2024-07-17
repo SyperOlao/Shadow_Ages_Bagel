@@ -1,4 +1,8 @@
 ﻿using System.Collections;
+using Enemy.Health;
+using Enemy.Health.FaceCamera;
+using Enemy.Health.FollowTarget;
+using UI.Battle;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Pool;
@@ -13,7 +17,7 @@ namespace Spawner
         [SerializeField] private int poolMaxSize = 10;
         [SerializeField] private int poolCapacity = 2;
         [SerializeField] private Canvas healthBarCanvas;
-        [SerializeField] private Enemy.Enemy enemy;
+        [SerializeField] private GameObject healthBar;
 
 
         private NavMeshTriangulation _triangulation;
@@ -33,24 +37,34 @@ namespace Spawner
             );
         }
 
-        private void OnEnable()
-        {
-            enemy.Die += ActionOnRelease;
-        }
-
-        private void OnDisable()
-        {
-            enemy.Die -= ActionOnRelease;
-        }
-
         private GameObject OnCreate()
         {
             var obj = Instantiate(prefab, ChooseRandomPointOnNavMesh(_triangulation), Quaternion.identity);
+
+            var healthBarObject = Instantiate(healthBar, transform);
+
             var navMeshAgent = obj.GetComponent<NavMeshAgent>();
-            navMeshAgent.GetComponent<Enemy.Enemy>().SetupHealthBar(healthBarCanvas, playerCamera);
+            var enemy = obj.GetComponent<Enemy.Enemy>();
+            
+            var followTarget = healthBarObject.GetComponent<FollowTarget>();
+            followTarget.Target = navMeshAgent.transform;
+            followTarget.Offset = new Vector3(0, 2, 0);
+            var healthProgressBar = healthBar.GetComponent<HealthProgressBar>();
+            healthProgressBar.Health = enemy.Health;
+            SetupHealthBar(healthBarCanvas, playerCamera, healthBarObject);
 
             navMeshAgent.enabled = true;
             return obj;
+        }
+
+
+        private void SetupHealthBar(Canvas canvas, Camera camera1, GameObject healthBarInstance)
+        {
+            healthBarInstance.transform.SetParent(canvas.transform);
+            if (healthBarInstance.TryGetComponent(out FaceCamera faceCamera))
+            {
+                faceCamera.Camera = camera1;
+            }
         }
 
         private static Vector3 ChooseRandomPointOnNavMesh(NavMeshTriangulation triangulation)
@@ -78,7 +92,7 @@ namespace Spawner
             obj.SetActive(true);
         }
 
-        private static void ActionOnRelease(GameObject obj)
+        public void ActionOnRelease(GameObject obj)
         {
             obj.SetActive(false);
         }

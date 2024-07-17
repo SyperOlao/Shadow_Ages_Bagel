@@ -1146,7 +1146,7 @@ MonoBehaviour:
   poolMaxSize: 10
   poolCapacity: 2
   healthBarCanvas: {fileID: 2011565243}
-  enemy: {fileID: 7974081345283672652, guid: 62b9599ff6277fc49b61d0f843baf7e4, type: 3}
+  healthBar: {fileID: 5528630654366314289, guid: 7b12fb6a442439647ace615fe8e2dcdb, type: 3}
 --- !u!1 &2011565240
 GameObject:
   m_ObjectHideFlags: 0
