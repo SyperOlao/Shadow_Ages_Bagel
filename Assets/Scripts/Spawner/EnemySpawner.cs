@@ -45,12 +45,11 @@ namespace Spawner
 
             var navMeshAgent = obj.GetComponent<NavMeshAgent>();
             var enemy = obj.GetComponent<Enemy.Enemy>();
-            
             var followTarget = healthBarObject.GetComponent<FollowTarget>();
             followTarget.Target = navMeshAgent.transform;
-            followTarget.Offset = new Vector3(0, 2, 0);
-            var healthProgressBar = healthBar.GetComponent<HealthProgressBar>();
-            healthProgressBar.Health = enemy.Health;
+            followTarget.Offset = new Vector3(0, 1.5f, 0);
+            var healthProgressBar = healthBarObject.GetComponent<HealthProgressBar>();
+            enemy.Health.HealthProgressBar = healthProgressBar;
             SetupHealthBar(healthBarCanvas, playerCamera, healthBarObject);
 
             navMeshAgent.enabled = true;

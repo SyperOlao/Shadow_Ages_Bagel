@@ -16,13 +16,7 @@ namespace UI.Battle
         [SerializeField] private Gradient colorGradient;
         [SerializeField] private UnityEvent<float> onProgress;
         [SerializeField] private UnityEvent onCompleted;
-        [SerializeField] private Health health;
 
-        public Health Health
-        {
-            get => health;
-            set => health = value;
-        }
 
         private Coroutine _animationCoroutine;
 
@@ -35,20 +29,10 @@ namespace UI.Battle
 #endif
         }
 
-        private void OnEnable()
+        // (health.CurrentHealth / health.MaxHealth
+        public void SetProgress(float damage)
         {
-            health.Changed += SetProgress;
-        }
-
-        private void OnDisable()
-        {
-            health.Changed -= SetProgress;
-        }
-
-        private void SetProgress(float damage)
-        {
-            
-            SetProgress(health.CurrentHealth / health.MaxHealth, defaultSpeed);
+            SetProgress(damage, defaultSpeed);
         }
 
         private void SetProgress(float progress, float speed)
